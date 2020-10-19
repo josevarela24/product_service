@@ -21,7 +21,7 @@ spec:
         - name: connexion-example
           # Docker image to be build with Minikube's Docker daemon (minikube docker-env)
           # see README.md on how to build
-          image: connexion-example:local-minikube
+          image: boooble/connexion
           env:
             - name: REDIS_HOST
               # point to our Redis service (see redis-service.yaml)

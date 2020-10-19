@@ -37,7 +37,6 @@ spec:
       spec:
         accessModes:
           - ReadWriteOnce
-        storageClassName: standard
         resources:
           requests:
             # 1GiB storage is more than enough for our example

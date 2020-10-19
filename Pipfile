@@ -4,6 +4,7 @@ verify_ssl = true
 name = "pypi"
 
 [packages]
+"connexion[swagger-ui]" = "*"
 connexion = "*"
 gevent = "*"
 greenlet = {version = "*", platform_python_implementation="=='CPython'"}
@@ -15,7 +16,7 @@ black = "*"
 pytest = "*"
 
 [requires]
-python_version = "3.6"
+python_version = "3.8"
 
 [pipenv]
 allow_prereleases = true
