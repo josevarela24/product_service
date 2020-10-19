@@ -5,12 +5,14 @@ monkey.patch_all()  # noqa
 
 import json
 import os
-import redis
+
 import connexion
 import datetime
 import logging
 
 from connexion import NoContent
+
+from services.redis_service import RedisFactory, RedisIndex
 
 REDIS_HOST = os.getenv("REDIS_HOST", "localhost")
 REDIS_PORT = int(os.getenv("REDIS_PORT", "6379"))
@@ -18,8 +20,9 @@ REDIS_PORT = int(os.getenv("REDIS_PORT", "6379"))
 logger = logging.getLogger(__name__)
 
 # the socket_timeout parameter is rather important as the default is "no timeout" :-/
-r = redis.StrictRedis(host=REDIS_HOST, port=REDIS_PORT, db=0, socket_timeout=5)
 
+index = RedisIndex(RedisFactory(REDIS_HOST, REDIS_PORT))
+r = index.connection()
 
 def get_redis_key(pet_id: str) -> str:
     return "pets:{}".format(pet_id)
