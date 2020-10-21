@@ -1,13 +1,9 @@
-FROM alpine:3.7
+FROM python:3.8-alpine
+
+RUN mkdir /code
+WORKDIR /code
+ADD . /code/
+RUN pip install -r requirements.txt
 
 EXPOSE 8080
-
-RUN apk add --no-cache python3 py3-gevent && python3 -m ensurepip
-
-WORKDIR /
-RUN pip3 install connexion[swagger-ui] connexion redis
-
-COPY app.py /
-COPY swagger.yaml /
-
-ENTRYPOINT ["/usr/bin/python3", "app.py"]
+CMD ["python", "/code/app.py"]

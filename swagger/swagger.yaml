@@ -17,7 +17,7 @@ paths:
   /health:
     get:
       tags: [Health]
-      operationId: app.get_health
+      operationId: api.pets.get_health
       summary: Health check
       responses:
         200:
@@ -25,7 +25,7 @@ paths:
   /pets:
     get:
       tags: [Pets]
-      operationId: app.get_pets
+      operationId: api.pets.get_pets
       summary: Get all pets
       parameters:
         - name: animal_type
@@ -51,7 +51,7 @@ paths:
   /pets/{pet_id}:
     get:
       tags: [Pets]
-      operationId: app.get_pet
+      operationId: api.pets.get_pet
       summary: Get a single pet
       parameters:
         - $ref: '#/parameters/pet_id'
@@ -64,7 +64,7 @@ paths:
           description: Pet does not exist
     put:
       tags: [Pets]
-      operationId: app.put_pet
+      operationId: api.pets.put_pet
       summary: Create or update a pet
       parameters:
         - $ref: '#/parameters/pet_id'
@@ -79,7 +79,7 @@ paths:
           description: New pet created
     delete:
       tags: [Pets]
-      operationId: app.delete_pet
+      operationId: api.pets.delete_pet
       summary: Remove a pet
       parameters:
         - $ref: '#/parameters/pet_id'

@@ -4,16 +4,16 @@ verify_ssl = true
 name = "pypi"
 
 [packages]
-"connexion[swagger-ui]" = "*"
-connexion = "*"
-gevent = "*"
-greenlet = {version = "*", platform_python_implementation="=='CPython'"}
+connexion = {extras = ["swagger-ui"], version = "*"}
 redis = "*"
+Flask = "*"
+Flask-Injector = "*"
 
 [dev-packages]
 black = "*"
 "flake8" = "*"
 pytest = "*"
+pylint = "*"
 
 [requires]
 python_version = "3.8"
